@@ -1,4 +1,4 @@
-package main.POJO.Request;
+package main.POJO.Request.Login;
 
 public class Login {
     public String loginType;
@@ -15,5 +15,14 @@ public class Login {
 
     public void setMessagingType(String messagingType) {
         this.messagingType = messagingType;
+    }
+
+    @Override
+    public String toString() {
+        return "{" +
+                "loginType='" + loginType + '\'' +
+                ", mobileNumber='" + mobileNumber + '\'' +
+                ", messagingType='" + messagingType + '\'' +
+                '}';
     }
 }

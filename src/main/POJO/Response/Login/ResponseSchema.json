@@ -1,0 +1,32 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "data": {
+      "type": "object",
+      "properties": {
+        "mobileNumber": {
+          "type": "string"
+        },
+        "token": {
+          "type": "string"
+        },
+        "retryInSeconds": {
+          "type": "integer"
+        },
+        "remainingInSeconds": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "mobileNumber",
+        "token",
+        "retryInSeconds",
+        "remainingInSeconds"
+      ]
+    }
+  },
+  "required": [
+    "data"
+  ]
+}

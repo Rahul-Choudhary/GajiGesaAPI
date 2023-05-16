@@ -1,0 +1,82 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "data": {
+      "type": "object",
+      "properties": {
+        "accessToken": {
+          "type": "string"
+        },
+        "refreshToken": {
+          "type": "string"
+        },
+        "userRoles": {
+          "type": "array",
+          "items": [
+            {
+              "type": "string"
+            }
+          ]
+        },
+        "userName": {
+          "type": "string"
+        },
+        "isGajitimEmployee": {
+          "type": "boolean"
+        },
+        "employeeAccounts": {
+          "type": "array",
+          "items": [
+            {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "integer"
+                },
+                "accountName": {
+                  "type": "string"
+                },
+                "accountTypeName": {
+                  "type": "string"
+                },
+                "status": {
+                  "type": "string"
+                },
+                "availableBalance": {
+                  "type": "integer"
+                },
+                "createdAt": {
+                  "type": "string"
+                },
+                "updatedAt": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "id",
+                "accountName",
+                "accountTypeName",
+                "status",
+                "availableBalance",
+                "createdAt",
+                "updatedAt"
+              ]
+            }
+          ]
+        }
+      },
+      "required": [
+        "accessToken",
+        "refreshToken",
+        "userRoles",
+        "userName",
+        "isGajitimEmployee",
+        "employeeAccounts"
+      ]
+    }
+  },
+  "required": [
+    "data"
+  ]
+}

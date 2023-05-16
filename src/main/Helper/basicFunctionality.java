@@ -19,8 +19,11 @@ public class basicFunctionality {
     protected String BASE_URL = "";
     protected RequestSpecification REQUEST_SPECIFICATION;
     protected final String RESOURCES_PATH = PROJECT_PATH+"/src/main/resources/";
+    protected final String RESPONSE_POJO_PATH = PROJECT_PATH+"/src/main/POJO/Response/";
     protected ResponseSpecification RESPONSE_SPECIFICATION_201;
-    protected final String JSON_REQUEST_PATH = PROJECT_PATH+"/src/main/requestJSON/";
+    protected ResponseSpecification RESPONSE_SPECIFICATION_400;
+    protected ResponseSpecification RESPONSE_SPECIFICATION_404;
+    protected final String JSON_REQUEST_PATH = PROJECT_PATH+"/src/main/POJO/Request/";
     protected String ACCESS_TOKEN_RECEIVED_FROM_RESPONSE = "";
     public HashMap<String, String> loadingValueFromProperties(String propertiesFilePath) throws IOException {
         Properties properties = new Properties();
@@ -39,7 +42,7 @@ public class basicFunctionality {
         return ENV_SELECTED;
     }
 
-    public Object creatingObjectFromJsonFile(String jsonPath, Class requestClassStruct) throws FileNotFoundException {
+    public static Object creatingObjectFromJsonFile(String jsonPath, Class requestClassStruct) throws FileNotFoundException {
         return new Gson().
                 fromJson(
                         new FileReader(
@@ -54,6 +57,15 @@ public class basicFunctionality {
         RESPONSE_SPECIFICATION_201 = RestAssured.expect().
                 statusCode(201).
                 time(Matchers.lessThan(5000L));
+
+        RESPONSE_SPECIFICATION_404 = RestAssured.expect().
+                statusCode(404).
+                time(Matchers.lessThan(5000L));
+
+        RESPONSE_SPECIFICATION_400 = RestAssured.expect().
+                statusCode(400).
+                time(Matchers.lessThan(5000L));
+
     }
 
     public void loadingBaseUrl(String environmentSelected) throws IOException {

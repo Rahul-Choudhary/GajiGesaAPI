@@ -1,4 +1,4 @@
-package main.POJO.Request;
+package main.POJO.Request.OTP;
 
 public class OTP{
     public String token;
